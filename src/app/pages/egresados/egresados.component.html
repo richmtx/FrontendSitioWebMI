@@ -13,7 +13,7 @@
                     <p *ngIf="loading">Cargando información...</p>
                     <p *ngIf="!loading && errorMsg">{{ errorMsg }}</p>
 
-                    <img *ngIf="!loading && egresado?.imagen" [src]="urlServer + '/' + egresado.imagen" alt="Egresados"
+                    <img *ngIf="!loading && egresado?.imagen" [src]="egresado.imagen" alt="Egresados"
                         class="imagen-egresado">
 
                     <p *ngIf="!loading && !egresado?.imagen">

@@ -58,8 +58,14 @@ export class NucleoBasicoComponent implements OnInit {
   }
 
   getImagen(imagen: string | null): string {
-    return imagen
-      ? `${this.urlServer}/${imagen}`
-      : 'assets/sin-foto.png';
+  if (!imagen) {
+    return 'assets/sin-foto.png';
   }
+
+  if (imagen.startsWith('data:')) {
+    return imagen;
+  }
+  
+  return `${this.urlServer}/${imagen}`;
+}
 }

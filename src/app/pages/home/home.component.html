@@ -9,7 +9,7 @@
         <thead>
             <tr>
                 <td>
-                    <img [src]="urlServer + '/' + portada.imagen" class="imagen" alt="Imagen portada" />
+                    <img *ngIf="portada.imagen" [src]="portada.imagen" class="imagen" alt="Imagen portada" />
                 </td>
             </tr>
             <tr>
@@ -29,8 +29,7 @@
 <!-- Carrusel de imágenes -->
 <div class="carousel-container">
     <div class="carousel-slide" id="carousel-slide">
-        <img *ngFor="let item of carrusel" [src]="urlServer + '/' + item.imagen"
-            [alt]="'Imagen carrusel ' + item.id_carrusel" />
+        <img *ngFor="let item of carrusel" [src]="item.imagen" [alt]="'Imagen carrusel ' + item.id_carrusel">
     </div>
 </div>
 
@@ -38,7 +37,7 @@
 <!-- Sección Galeria -->
 <section class="galeria-becas">
     <div class="card" *ngFor="let item of galeria">
-        <img [src]="urlServer + '/' + item.imagen" [alt]="item.titulo" />
+        <img *ngIf="item?.imagen" [src]="item.imagen" [alt]="item.titulo" />
 
         <div class="overlay">
             <h3>{{ item.titulo }}</h3>
