@@ -46,12 +46,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   currentIndex = 0;
   autoSlideInterval: any;
 
+  // FACEBOOK
   ngAfterViewInit(): void {
     this.updateSlidePosition();
 
     this.autoSlideInterval = setInterval(() => {
       this.nextSlide();
     }, 3000);
+
+    if (isPlatformBrowser(this.platformId)) {
+      setTimeout(() => {
+        const fb = (window as any).FB;
+        if (fb) {
+          fb.XFBML.parse();
+        }
+      }, 1000);
+    }
   }
 
   ngOnDestroy(): void {
