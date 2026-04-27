@@ -1,7 +1,9 @@
 import { Component, HostListener, ElementRef, AfterViewInit } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-navbar-tec',
+  imports: [RouterLink],
   templateUrl: './navbar-tec.component.html',
   styleUrls: ['./navbar-tec.component.css']
 })
